@@ -14,3 +14,10 @@ def parse_club(line):
         'год_основания': parts[3],
         'стадион': parts[4]
     }
+
+
+def filter_clubs(filename, country, min_wins):
+    for line in read_clubs(filename):
+        club = parse_club(line)
+        if club['страна'] == country and club['победы_лч'] > min_wins:
+            yield club
