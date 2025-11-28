@@ -14,3 +14,19 @@ def timer(func):
     return wrapper
 
 
+@timer
+def slow_sum(n):
+    answer = 0
+    for i in range(1, n + 1):
+        answer += i
+    return answer
+
+
+@timer
+def fast_sum(n):
+    return n * (n + 1) // 2
+
+
+print("Результат подсчета медленной функции", slow_sum(7777777))
+print()
+print("Результат подсчета быстрой функции", fast_sum(7777777))
