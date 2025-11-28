@@ -15,3 +15,20 @@ def my_reduce(func, iterable, initial=None):
     return accumulator
 
 
+clubs = [
+    ("Реал Мадрид", 15),
+    ("Милан", 7),
+    ("Бавария", 6),
+    ("Ливерпуль", 6),
+    ("Барселона", 5),
+    ("Аякс", 4),
+    ("Интер", 3),
+    ("Манчестер Юнайтед", 3),
+]
+
+
+best_club = my_reduce(
+    lambda acc, club: acc if acc[1] > club[1] else club, clubs
+)
+print(f"Лучший клуб по титулам ЛЧ: {best_club[0]} ({best_club[1]} побед).")
+print("Но лучший в мире все равно Барселона!")
